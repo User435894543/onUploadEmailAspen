@@ -33,7 +33,7 @@ namespace onUploadEmail
             bool yes = false;
 
             //read in the file and compare to what the directory has
-            using (StreamReader sr = new StreamReader("//visonas/public/Kyle/onUploadProgram/Navistone/Debug/TextFile1.txt"))
+            using (StreamReader sr = new StreamReader("//visonas/public/Kyle/onUploadProgram/aspen/Debug/TextFile1.txt"))
             {
                 while (sr.Peek() >= 0)
                 {
@@ -46,7 +46,7 @@ namespace onUploadEmail
 
             //get the files in the directory
 
-            DirectoryInfo d = new DirectoryInfo("//VISONAS/Prepress/SFTP/navistone");//Assuming Test is your Folder
+            DirectoryInfo d = new DirectoryInfo("//VISONAS/Prepress/SFTP/aspen");//Assuming Test is your Folder
             FileInfo[] Files = d.GetFiles("*"); //Getting files
 
             //compare the two lists find different files
@@ -93,7 +93,7 @@ namespace onUploadEmail
 
                 //folders
 
-            var sw = new StreamWriter("//visonas/public/Kyle/onUploadProgram/Navistone/Debug/TextFile1.txt");
+            var sw = new StreamWriter("//visonas/public/Kyle/onUploadProgram/aspen/Debug/TextFile1.txt");
             //write to file
             foreach (FileInfo file in Files)
             {
@@ -116,7 +116,7 @@ namespace onUploadEmail
   
 
             //read in the file and compare to what the directory has
-            using (StreamReader sr = new StreamReader("//visonas/public/Kyle/onUploadProgram/Navistone/Debug/TextFile2.txt"))
+            using (StreamReader sr = new StreamReader("//visonas/public/Kyle/onUploadProgram/aspen/Debug/TextFile2.txt"))
             {
                 while (sr.Peek() >= 0)
                 {
@@ -127,7 +127,7 @@ namespace onUploadEmail
             }
 
 
-            DirectoryInfo di = new DirectoryInfo("//VISONAS/Prepress/SFTP/navistone");
+            DirectoryInfo di = new DirectoryInfo("//VISONAS/Prepress/SFTP/aspen");
             DirectoryInfo[] diArr = di.GetDirectories();
 
             List<string> folders = new List<string>();
@@ -172,7 +172,7 @@ namespace onUploadEmail
 
   
 
-            var swFolder = new StreamWriter("//visonas/public/Kyle/onUploadProgram/Navistone/Debug/TextFile2.txt");
+            var swFolder = new StreamWriter("//visonas/public/Kyle/onUploadProgram/aspen/Debug/TextFile2.txt");
             //write to file
 
             foreach (DirectoryInfo folder in diArr)
@@ -201,7 +201,7 @@ namespace onUploadEmail
                     string mailBuilder = "";
 
                     MailMessage mail = new MailMessage();
-                    SmtpClient SmtpServer = new SmtpClient("webmail.visographic.com ");
+                    SmtpClient SmtpServer = new SmtpClient("smtp.visographic.com ");
 
                     mail.From = new MailAddress("kjacobsen@visographic.com");
 
@@ -214,7 +214,7 @@ namespace onUploadEmail
                     //build th ebody of email using string builder^
                     //mail.Subject = "Aspen SFTP Update on Visonas";
 
-                    mailBuilder += "Navistone has SFTP updated:\n";
+                    mailBuilder += "Aspen has SFTP updated:\n";
 
 
                     for (int x = 0; x<list.Count;  x++) {
@@ -222,7 +222,7 @@ namespace onUploadEmail
                     }
 
 
-                    mailBuilder += "\n"+@"Please see path: \\VISONAS\Prepress\SFTP\navistone\";
+                    mailBuilder += "\n"+@"Please see path: \\VISONAS\Prepress\SFTP\aspen\";
 
 
                     
@@ -244,12 +244,12 @@ namespace onUploadEmail
 
                   
 
-                    SmtpServer.Port = 587;
+                    SmtpServer.Port = 2525;
 
                     SmtpServer.Credentials = new System.Net.NetworkCredential("kjacobsen@visographic.com", "wood234StockA2**");
                     // SmtpServer.EnableSsl = true;
 
-                    mail.Subject = "Navistone upload";
+                    mail.Subject = "Aspen upload";
 
                     SmtpServer.Send(mail);
            
