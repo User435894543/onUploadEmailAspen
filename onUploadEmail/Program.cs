@@ -206,9 +206,11 @@ namespace onUploadEmail
                     mail.From = new MailAddress("kjacobsen@visographic.com");
 
                    mail.To.Add("JCardelli@visographic.com");
-                    mail.To.Add("JMarch@visographic.com");
+                    mail.To.Add("dnavigato@visographic.com");
                      mail.To.Add("mailing@visographic.com");
                     mail.To.Add("kjacobsen@visographic.com");
+                    mail.To.Add("LDahlke@visographic.com");
+                    mail.To.Add("joneil@visographic.com");
                     //add mailing dan and kristine
 
                     //build th ebody of email using string builder^
